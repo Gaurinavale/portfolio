@@ -1,24 +1,7 @@
 {
   "name": "gauri-portfolio",
   "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "portfolio.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/portfolio.html",
-      "dest": "/portfolio.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/portfolio.html" }
   ]
 }
