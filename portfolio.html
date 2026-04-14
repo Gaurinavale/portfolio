@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauri Navale - AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-color: #e0e0e0;
+            --accent-color: #0066cc;
+            --success-color: #10b981;
+            --info-bg: #e0f2fe;
+            --info-text: #0369a1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            z-index: 100;
+        }
+
+        nav h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            transition: color 0.3s;
+            padding: 0;
+        }
+
+        nav button:hover,
+        nav button.active {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-color);
+            background: var(--info-bg);
+        }
+
+        /* Section */
+        section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-icon {
+            font-size: 28px;
+        }
+
+        .project-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card > p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .project-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background: var(--info-bg);
+            color: var(--info-text);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            font-size: 14px;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-color);
+            transition: opacity 0.3s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .skill-card h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Education */
+        .education-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .education-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .info-item p:first-child {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item p:last-child {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item p:first-child {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item a {
+            font-size: 14px;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-tertiary);
+            font-size: 12px;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 12px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <h1>Gauri Navale</h1>
+        <ul>
+            <li><button class="nav-btn active" data-section="home">Home</button></li>
+            <li><button class="nav-btn" data-section="projects">Projects</button></li>
+            <li><button class="nav-btn" data-section="skills">Skills</button></li>
+            <li><button class="nav-btn" data-section="contact">Contact</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>AI/ML Engineer</h2>
+            <p>Building intelligent systems with RAG, LLMs, and Generative AI. BE IT @ SVPM COE Baramati | Graduating 2026</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/Gaurinavale" target="_blank" class="btn">GitHub</a>
+                <a href="https://linkedin.com/in/gauri-navale" target="_blank" class="btn">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h3>About</h3>
+        <p>Passionate AI/ML engineer specializing in building production-ready systems with Generative AI, LLMs, and RAG architectures. Experienced in end-to-end development from prompt engineering to deployment on cloud platforms. Quick learner with strong fundamentals in machine learning, NLP, and modern AI frameworks.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h3>Projects</h3>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🤖</span>
+                    <div style="flex: 1;">
+                        <h4>SVPM College FAQ Chatbot</h4>
+                        <p>AI-powered chatbot using RAG architecture to answer 100+ college FAQs covering admissions, fees, placements and facilities.</p>
+                    </div>
+                </div>
+                <div class="project-details hidden">
+                    <p><strong>Details:</strong> Integrated LLaMA 3.3 70B via Groq API with prompt engineering; deployed on Streamlit Cloud with secure API key management.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">RAG Architecture</span>
+                        <span class="tech-badge">LLaMA 3.3 70B</span>
+                        <span class="tech-badge">Groq API</span>
+                        <span class="tech-badge">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Gaurinavale/-svpm-college-chatbot" target="_blank">View Code ↗</a>
+                        <a href="https://eqorzm5g3pqxtraqrxtbbk.streamlit.app/" target="_blank">Live Demo ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🎙️</span>
+                    <div style="flex: 1;">
+                        <h4>AI Meeting Summarizer</h4>
+                        <p>AI-powered meeting summarizer that transcribes audio/video and generates structured summaries with action items.</p>
+                    </div>
+                </div>
+                <div class="project-details hidden">
+                    <p><strong>Details:</strong> Transcribe MP3, WAV, MP4, TXT using Whisper; AI summarization via OpenRouter; extracts action items with owners and deadlines; exports structured JSON.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Whisper</span>
+                        <span class="tech-badge">OpenRouter</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">MoviePy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Gaurinavale/meeting-summarizer" target="_blank">View Code ↗</a>
+                        <a href="https://meeting-summarizer-3l5bybtl833v8kf5q52bga.streamlit.app/" target="_blank">Live Demo ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h3>Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>AI/ML</h4>
+                <ul>
+                    <li>Machine Learning</li>
+                    <li>NLP</li>
+                    <li>RAG Architecture</li>
+                    <li>Prompt Engineering</li>
+                    <li>LLM Integration</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>Libraries</h4>
+                <ul>
+                    <li>Scikit-learn</li>
+                    <li>NumPy</li>
+                    <li>Pandas</li>
+                    <li>Matplotlib</li>
+                    <li>Seaborn</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>APIs & Tools</h4>
+                <ul>
+                    <li>Groq API</li>
+                    <li>LLaMA 3.3 70B</li>
+                    <li>Gemini API</li>
+                    <li>Streamlit</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>Programming</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>Databases</h4>
+                <ul>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>Cloud</h4>
+                <ul>
+                    <li>Amazon Web Services</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h3>Education</h3>
+        <div class="education-card">
+            <h4>Bachelor of Engineering in Information Technology</h4>
+            <p>SVPM College of Engineering, Baramati<br>Savitribai Phule Pune University</p>
+            <div class="education-info">
+                <div class="info-item">
+                    <p>Graduation</p>
+                    <p>2026</p>
+                </div>
+                <div class="info-item">
+                    <p>CGPA</p>
+                    <p>8.5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h3>Get In Touch</h3>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <p>Email</p>
+                <a href="mailto:gaurinavale@26gmail.com">gaurinavale@26gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <p>LinkedIn</p>
+                <a href="https://linkedin.com/in/gauri-navale" target="_blank">linkedin.com/in/gauri-navale</a>
+            </div>
+            <div class="contact-item">
+                <p>GitHub</p>
+                <a href="https://github.com/Gaurinavale" target="_blank">github.com/Gaurinavale</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Gauri Navale. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Project Card Toggle
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const details = this.querySelector('.project-details');
+                details.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
